@@ -8,10 +8,11 @@ public:
 	~ClockFace();
 
 	// game object update logic goes here - eg.: move game object
+	void handleEvents(BitFlag* events) override;
+	void update(int frameTime) override;
 	void update(int frameTime, int tens, int ones);
 	void render() override;
 	// Inherited via GameObject
-	virtual void handleEvents(BitFlag* events) override;
 
 private:
 	void _renderBackground(int x, int y);

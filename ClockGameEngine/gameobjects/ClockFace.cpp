@@ -9,11 +9,21 @@ ClockFace::~ClockFace()
 {
 }
 
+
+void ClockFace::handleEvents(BitFlag* events)
+{
+}
+
 void ClockFace::update(int frameTime, int tens, int ones)
 {
-	GameObject::update(frameTime);
+	update(frameTime);
 	_digitTens = tens;
 	_digitOnes = ones;
+}
+
+void ClockFace::update(int frameTime)
+{
+
 }
 
 void ClockFace::_renderBackground(int x, int y)
@@ -37,10 +47,6 @@ void ClockFace::_renderBackground(int x, int y)
 void ClockFace::_renderDigit(int x, int y, int digit)
 {
 	_renderer->drawSprite(x, y, _font->spriteWidth(), _font->spriteHeight(), _font->getSprite(digit));
-}
-
-void ClockFace::handleEvents(BitFlag* events)
-{
 }
 
 void ClockFace::render()

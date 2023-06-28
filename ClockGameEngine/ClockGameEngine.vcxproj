@@ -131,9 +131,7 @@
   <ItemGroup>
     <ClCompile Include="gameobjects\ClockFace.cpp" />
     <ClCompile Include="gameobjects\Cloud.cpp" />
-    <ClCompile Include="DynamicGameObject.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="gameobjects\Mario.cpp" />
     <ClCompile Include="Renderer.cpp" />

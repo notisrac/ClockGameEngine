@@ -5,30 +5,21 @@
 class DynamicGameObject : public GameObject
 {
 public:
-	DynamicGameObject(SpriteSheet* spriteSheet, Renderer* renderer, int x, int y);
-	~DynamicGameObject();
-
-	void update(int frameTime, bool overrideX = false, int xOverride = 0, bool overrideY = false, int yOverride = 0) override;
-
+	DynamicGameObject(SpriteSheet* spriteSheet, Renderer* renderer, int x, int y) : GameObject(spriteSheet, renderer, x, y) {}
+	~DynamicGameObject() {}
 
 	// Inherited via GameObject
-	//virtual void handleEvents(BitFlag* events) override;
-
-	//virtual void render() override;
-
-	//void update(int frameTime);
+	//virtual void handleEvents(BitFlag* events) override = 0;
+	//virtual void update(int frameTime) override = 0;
+	//virtual void render() override = 0;
 
 protected:
-	GameObjectMoveStates _moveState = GameObjectMoveStates::Stopped;
+	//GameObjectMoveStates _moveState = GameObjectMoveStates::Stopped;
 	char _hDirection = 0;
 	char _vDirection = 0;
-	float _vVelocity = 0;
+	float _fXPos = 0;
+	float _fYPos = 0;
 	float _hVelocity = 0;
-	float _maxHVelocity = 0;
-	float _hDeceleration = 0;
-	float _hAcceleration = 0;
-	float _maxVVelocity = 0;
-	float _vAcceleration = 0;
-	float _vDeceleration = 0;
+	float _vVelocity = 0;
 };
 

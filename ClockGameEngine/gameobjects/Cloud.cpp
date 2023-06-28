@@ -6,9 +6,18 @@ Cloud::Cloud(SpriteSheet* spriteSheet, Renderer* renderer, int x, int y) : Dynam
 {
 }
 
-void Cloud::update(int frameTime, bool overrideX, int xOverride, bool overrideY, int yOverride)
+void Cloud::handleEvents(BitFlag* events)
 {
-	GameObject::update(frameTime);
+}
+
+void Cloud::render()
+{
+	int* pixels = _spriteSheet->getSprite(39);
+	_renderer->drawSprite(_xPos, _yPos, _spriteSheet->spriteWidth(), _spriteSheet->spriteWidth(), pixels);
+}
+
+void Cloud::update(int frameTime)
+{
 	// game object update logic goes here - eg.: move game object
 	/*if (_direction)
 	{
@@ -37,12 +46,3 @@ void Cloud::update(int frameTime, bool overrideX, int xOverride, bool overrideY,
 
 }
 
-void Cloud::render()
-{
-	int* pixels = _spriteSheet->getSprite(39);
-	_renderer->drawSprite(_xPos, _yPos, _spriteSheet->spriteWidth(), _spriteSheet->spriteWidth(), pixels);
-}
-
-void Cloud::handleEvents(BitFlag* events)
-{
-}

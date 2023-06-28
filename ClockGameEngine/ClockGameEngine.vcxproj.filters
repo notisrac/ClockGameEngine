@@ -30,16 +30,10 @@
     <ClCompile Include="gameobjects\Cloud.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="gameobjects\ClockFace.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="StaticGameObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DynamicGameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="gameobjects\Mario.cpp">

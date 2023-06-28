@@ -1,23 +1,19 @@
 #include "Mario.h"
 #include <iostream>
 
+#define MARIO_H_MAX_VELOCITY 100
+#define MARIO_H_ACELLERATION 5
+#define MARIO_H_DECELERATION 10
+#define MARIO_V_MAX_VELOCITY 100
+#define MARIO_V_ACELLERATION 100
+#define MARIO_V_DECELERATION 100
+
 Mario::Mario(SpriteSheet* spriteSheet, Renderer* renderer, int x, int y) : DynamicGameObject(spriteSheet, renderer, x, y)
 {
-	_maxHVelocity = 100;
-	_hDeceleration = 10;
-	_hAcceleration = 5;
-	_maxVVelocity = 2;
-	_vAcceleration = 0.07;
-	_vDeceleration = 0.1;
 }
 
 Mario::~Mario()
 {
-}
-
-void Mario::update(int frameTime, bool overrideX, int xOverride, bool overrideY, int yOverride)
-{
-	DynamicGameObject::update(frameTime, overrideX, xOverride, overrideY, yOverride);
 }
 
 void Mario::handleEvents(BitFlag* events)
@@ -44,6 +40,33 @@ void Mario::handleEvents(BitFlag* events)
 		_vDirection = -1;
 		//std::cout << "up" << std::endl;
 	}
+}
+
+void Mario::update(int frameTime)
+{
+	if (_hDirection != 0) // moving
+	{
+		_hVelocity += MARIO_H_ACELLERATION;
+		if (_hVelocity >= MARIO_H_MAX_VELOCITY)
+		{
+			_hVelocity = MARIO_H_MAX_VELOCITY;
+		}
+	}
+
+	if (_hDirection == 0)
+	{
+		_hVelocity -= MARIO_H_DECELERATION;
+		if (_hVelocity <= 0)
+		{
+			_hVelocity = 0;
+		}
+	}
+
+	_fXPos += ((_hDirection * _hVelocity) / 1000) * frameTime;
+	_xPos = round(_fXPos);
+
+	std::cout << _xPos << std::endl;
+
 }
 
 void Mario::render()
