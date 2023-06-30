@@ -27,7 +27,7 @@
     <ClCompile Include="SpriteSheet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gameobjects\Cloud.cpp">
+    <ClCompile Include="gameobjects\LakituCloud.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="gameobjects\ClockFace.cpp">
@@ -68,7 +68,7 @@
     <ClInclude Include="SpriteSheet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gameobjects\Cloud.h">
+    <ClInclude Include="gameobjects\LakituCloud.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="gameobjects\ClockFace.h">

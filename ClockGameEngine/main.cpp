@@ -10,7 +10,7 @@ using namespace std::chrono;
 #include "GameObject.h"
 #include "SpriteSheet.h"
 #include "resources/gamespritesheet.h"
-#include "gameobjects/Cloud.h"
+#include "gameobjects/LakituCloud.h"
 #include "resources/clock_face_font.h"
 #include "gameobjects/ClockFace.h"
 #include "gameobjects/Mario.h"
@@ -63,14 +63,14 @@ int main(int argc, char** argv)
 	// create game objects
 	//GameObject* test = new GameObject(gameSprites, renderer, 0, 0);
 	//int* xx = new int[4] {0xd97e, 0xd97e, 0xd97e, 0xd97e};
-	Cloud* cloud = new Cloud(gameSprites, renderer, 0, 0);
+	LakituCloud* lakituCloud = new LakituCloud(gameSprites, renderer, 0, 0);
 	ClockFace* clockFace = new ClockFace(gameSprites, clockFontSprites, renderer, 15, 14);
 	Mario* mario = new Mario(gameSprites, renderer, 51, 78);
 	TileMap* tileMap = new TileMap(gameSprites, renderer, main_tile_map, MAIN_TILEMAP_WIDTH, MAIN_TILEMAP_HEIGHT, WIDTH, HEIGHT);
 
 	// register game objects
 	game->addGameObject(tileMap);
-	game->addGameObject(cloud);
+	game->addGameObject(lakituCloud);
 	game->addGameObject(clockFace);
 	game->addGameObject(mario);
 

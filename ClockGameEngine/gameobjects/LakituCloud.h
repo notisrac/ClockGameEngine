@@ -1,11 +1,11 @@
 #pragma once
 #include "../DynamicGameObject.h"
 
-class Cloud : public DynamicGameObject
+class LakituCloud : public DynamicGameObject
 {
 public:
-	Cloud(SpriteSheet* spriteSheet, Renderer* renderer, int x, int y);
-	~Cloud();
+	LakituCloud(SpriteSheet* spriteSheet, Renderer* renderer, int x, int y);
+	~LakituCloud();
 
 	// Inherited via DynamicGameObject
 	void handleEvents(BitFlag* events) override;

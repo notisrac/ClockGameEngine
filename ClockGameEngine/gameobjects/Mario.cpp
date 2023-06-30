@@ -68,6 +68,7 @@ void Mario::update(int frameTime)
 			_moveState = GameObjectMoveStates::Stopped;
 			_hVelocity = 0;
 		}
+		_animStep = 0;
 	}
 
 	_fXPos += ((_hDirection * _hVelocity) / 1000) * frameTime;

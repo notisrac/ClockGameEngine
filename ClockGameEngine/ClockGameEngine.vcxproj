@@ -131,7 +131,7 @@
   <ItemGroup>
     <ClCompile Include="GameObjectDirection.h" />
     <ClCompile Include="gameobjects\ClockFace.cpp" />
-    <ClCompile Include="gameobjects\Cloud.cpp" />
+    <ClCompile Include="gameobjects\LakituCloud.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="gameobjects\Mario.cpp" />
@@ -144,7 +144,7 @@
     <ClInclude Include="BitFlag.h" />
     <ClInclude Include="gameobjects\ClockFace.h" />
     <ClInclude Include="resources\clock_face_font.h" />
-    <ClInclude Include="gameobjects\Cloud.h" />
+    <ClInclude Include="gameobjects\LakituCloud.h" />
     <ClInclude Include="DynamicGameObject.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
@@ -152,7 +152,9 @@
     <ClInclude Include="gameobjects\Mario.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="resources\gamespritesheet.h" />
-    <ClInclude Include="resources\main_tilemap.h" />
+    <ClInclude Include="resources\main_tilemap.h">
+      <DeploymentContent>false</DeploymentContent>
+    </ClInclude>
     <ClInclude Include="SpriteSheet.h" />
     <ClInclude Include="TileMap.h" />
   </ItemGroup>

@@ -1,22 +1,22 @@
-#include "Cloud.h"
+#include "LakituCloud.h"
 #include <iostream>
 
 
-Cloud::Cloud(SpriteSheet* spriteSheet, Renderer* renderer, int x, int y) : DynamicGameObject(spriteSheet, renderer, x, y)
+LakituCloud::LakituCloud(SpriteSheet* spriteSheet, Renderer* renderer, int x, int y) : DynamicGameObject(spriteSheet, renderer, x, y)
 {
 }
 
-void Cloud::handleEvents(BitFlag* events)
+void LakituCloud::handleEvents(BitFlag* events)
 {
 }
 
-void Cloud::render()
+void LakituCloud::render()
 {
 	int* pixels = _spriteSheet->getSprite(39);
 	_renderer->drawSprite(_xPos, _yPos, _spriteSheet->spriteWidth(), _spriteSheet->spriteWidth(), pixels);
 }
 
-void Cloud::update(int frameTime)
+void LakituCloud::update(int frameTime)
 {
 	// game object update logic goes here - eg.: move game object
 	/*if (_direction)
