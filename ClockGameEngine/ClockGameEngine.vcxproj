@@ -129,6 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameObjectDirection.h" />
     <ClCompile Include="gameobjects\ClockFace.cpp" />
     <ClCompile Include="gameobjects\Cloud.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -136,7 +137,7 @@
     <ClCompile Include="gameobjects\Mario.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="SpriteSheet.cpp" />
-    <ClCompile Include="StaticGameObject.cpp" />
+    <ClCompile Include="TileMap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Arduino.h" />
@@ -151,8 +152,9 @@
     <ClInclude Include="gameobjects\Mario.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="resources\gamespritesheet.h" />
+    <ClInclude Include="resources\main_tilemap.h" />
     <ClInclude Include="SpriteSheet.h" />
-    <ClInclude Include="StaticGameObject.h" />
+    <ClInclude Include="TileMap.h" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="resources/**">

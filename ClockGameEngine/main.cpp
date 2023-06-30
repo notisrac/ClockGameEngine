@@ -14,6 +14,8 @@ using namespace std::chrono;
 #include "resources/clock_face_font.h"
 #include "gameobjects/ClockFace.h"
 #include "gameobjects/Mario.h"
+#include "resources/main_tilemap.h"
+#include "TileMap.h"
 
 auto startTime = high_resolution_clock().now();
 
@@ -50,7 +52,7 @@ int main(int argc, char** argv)
 	int frameTime;
 	int lastFrameTime = 0;
 
-	Renderer *renderer = new Renderer(WIDTH, HEIGHT, SCALE, "'lil game", 0x5cbf, 0xd97e);
+	Renderer *renderer = new Renderer(WIDTH, HEIGHT, SCALE, "'lil Mario Clock game", 0x5cbf, 0xd97e);
 
 	Game* game = new Game(renderer);
 
@@ -64,8 +66,10 @@ int main(int argc, char** argv)
 	Cloud* cloud = new Cloud(gameSprites, renderer, 0, 0);
 	ClockFace* clockFace = new ClockFace(gameSprites, clockFontSprites, renderer, 15, 14);
 	Mario* mario = new Mario(gameSprites, renderer, 51, 78);
+	TileMap* tileMap = new TileMap(gameSprites, renderer, main_tile_map, MAIN_TILEMAP_WIDTH, MAIN_TILEMAP_HEIGHT, WIDTH, HEIGHT);
 
 	// register game objects
+	game->addGameObject(tileMap);
 	game->addGameObject(cloud);
 	game->addGameObject(clockFace);
 	game->addGameObject(mario);
@@ -82,6 +86,7 @@ int main(int argc, char** argv)
 		game->handleEvents();
 		game->update(lastFrameTime);
 		clockFace->update(lastFrameTime, cnt / 100, cnt % 100);
+		tileMap->setPosition(mario->getXPos(), 0);
 		game->render();
 
 

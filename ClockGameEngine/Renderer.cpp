@@ -51,7 +51,7 @@ Renderer::~Renderer()
 
 void Renderer::setPixel(int x, int y, int color)
 {
-    if (x >= _width || y >= _height)
+    if (x >= _width || y >= _height || x < 0 || y < 0)
     {
         return;
     }
@@ -127,6 +127,9 @@ BitFlag* Renderer::pollEvents()
                 case SDLK_DOWN:
                     _eventsBitFlag.SetFlag(EventTypes::ButtonDown);
                     break;
+                case SDLK_RETURN:
+                    _eventsBitFlag.SetFlag(EventTypes::ButtonReturn);
+                    break;
                 }
                 break;
             case SDL_KEYUP:
@@ -143,6 +146,9 @@ BitFlag* Renderer::pollEvents()
                     break;
                 case SDLK_DOWN:
                     _eventsBitFlag.UnsetFlag(EventTypes::ButtonDown);
+                    break;
+                case SDLK_RETURN:
+                    _eventsBitFlag.UnsetFlag(EventTypes::ButtonReturn);
                     break;
                 }
                 break;

@@ -28,6 +28,14 @@ public:
 		_xPos = x;
 		_yPos = y;
 	}
+	virtual int getXPos()
+	{
+		return _xPos;
+	}
+	virtual int getYPos()
+	{
+		return _yPos;
+	}
 
 protected:
 	SpriteSheet* _spriteSheet;

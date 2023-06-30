@@ -6,7 +6,7 @@ public:
 	SpriteSheet(int* spriteSheet, int width, int height, int spriteWidth, int spriteHeight);
 	~SpriteSheet();
 
-	int* getSprite(int spriteNumber);
+	int* getSprite(int spriteNumber, bool flipped = false);
 	int spriteSize() { return _spriteWidth * _spriteHeight; }
 	int spriteWidth() { return _spriteWidth; }
 	int spriteHeight() { return _spriteHeight; }

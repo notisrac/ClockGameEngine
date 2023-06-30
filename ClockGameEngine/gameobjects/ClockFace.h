@@ -1,7 +1,7 @@
 #pragma once
-#include "../GameObject.h"
+#include "../DynamicGameObject.h"
 
-class ClockFace : public GameObject
+class ClockFace : public DynamicGameObject
 {
 public:
 	ClockFace(SpriteSheet* spriteSheet, SpriteSheet* font, Renderer* renderer, int x, int y);
@@ -21,5 +21,6 @@ private:
 	int _digitTens = 0;
 	int _digitOnes = 0;
 	bool _bumpEvent = false;
+	float _yInternal = 0;
 };
 

@@ -14,7 +14,7 @@ SpriteSheet::~SpriteSheet()
 {
 }
 
-int* SpriteSheet::getSprite(int spriteNumber)
+int* SpriteSheet::getSprite(int spriteNumber, bool flipped)
 {
 	int* a = new int[_spriteWidth * _spriteHeight]{0};
 
@@ -27,7 +27,7 @@ int* SpriteSheet::getSprite(int spriteNumber)
 	{
 		for (int j = 0; j < _spriteHeight; j++)
 		{
-			a[j * _spriteWidth + i] = _spriteSheet[(row * _spriteHeight + j) * _sheetWidth + (col * _spriteWidth + i)];
+			a[j * _spriteWidth + ((flipped) ? (_spriteWidth - 1) - i : i)] = _spriteSheet[(row * _spriteHeight + j) * _sheetWidth + (col * _spriteWidth + i)];
 		}
 	}
 

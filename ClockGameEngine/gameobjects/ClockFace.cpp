@@ -1,6 +1,10 @@
 #include "ClockFace.h"
+#include <iostream>
 
-ClockFace::ClockFace(SpriteSheet* spriteSheet, SpriteSheet* font, Renderer* renderer, int x, int y) : GameObject(spriteSheet, renderer, x, y)
+#define CLOCK_V_MAX_VELOCITY 100
+#define CLOCK_V_MAX_HEIGHT -15
+
+ClockFace::ClockFace(SpriteSheet* spriteSheet, SpriteSheet* font, Renderer* renderer, int x, int y) : DynamicGameObject(spriteSheet, renderer, x, y)
 {
 	_font = font;
 }
@@ -9,9 +13,16 @@ ClockFace::~ClockFace()
 {
 }
 
-
 void ClockFace::handleEvents(BitFlag* events)
 {
+	if (events->HasFlag(EventTypes::ButtonReturn) && !_bumpEvent)
+	{
+		_bumpEvent = true;
+		_vDirection = -1;
+		_vVelocity = CLOCK_V_MAX_VELOCITY;
+		//std::cout << "bump!" << std::endl;
+	}
+
 }
 
 void ClockFace::update(int frameTime, int tens, int ones)
@@ -23,7 +34,25 @@ void ClockFace::update(int frameTime, int tens, int ones)
 
 void ClockFace::update(int frameTime)
 {
+	if (!_bumpEvent)
+	{
+		return;
+	}
 
+	if (_vDirection < 0 && _yInternal <= CLOCK_V_MAX_HEIGHT)
+	{
+		_vDirection = 1;
+	}
+	else if (_vDirection > 0 && _yInternal >= 0)
+	{
+		_yInternal = 0;
+		_vDirection = 0;
+		_vVelocity = 0;
+		_bumpEvent = false;
+	}
+
+	_yInternal += ((_vDirection * _vVelocity) / 1000) * frameTime;
+	//std::cout << _yInternal << std::endl;
 }
 
 void ClockFace::_renderBackground(int x, int y)
@@ -51,13 +80,14 @@ void ClockFace::_renderDigit(int x, int y, int digit)
 
 void ClockFace::render()
 {
+	int yModifier = round(_yInternal);
 	// tens
-	_renderBackground(_xPos, _yPos);
-	_renderDigit(_xPos + 5, _yPos + 12, _digitTens / 10);
-	_renderDigit(_xPos + 25, _yPos + 12, _digitTens % 10);
+	_renderBackground(_xPos, _yPos + yModifier);
+	_renderDigit(_xPos + 5, _yPos + 12 + yModifier, _digitTens / 10);
+	_renderDigit(_xPos + 25, _yPos + 12 + yModifier, _digitTens % 10);
 
 	// ones
-	_renderBackground(_xPos + 3 * _spriteSheet->spriteWidth(), _yPos);
-	_renderDigit(_xPos + 48 + 5, _yPos + 12, _digitOnes / 10);
-	_renderDigit(_xPos + 48 + 25, _yPos + 12, _digitOnes % 10);
+	_renderBackground(_xPos + 3 * _spriteSheet->spriteWidth(), _yPos + yModifier);
+	_renderDigit(_xPos + 48 + 5, _yPos + 12 + yModifier, _digitOnes / 10);
+	_renderDigit(_xPos + 48 + 25, _yPos + 12 + yModifier, _digitOnes % 10);
 }
