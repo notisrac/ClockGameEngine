@@ -18,6 +18,14 @@ public:
 	virtual void handleEvents(BitFlag* events) override;
 	virtual void update(int frameTime) override;
 	virtual void render() override;
+	virtual int getWidth() override
+	{
+		return _spriteSheet->spriteWidth() * _tileMapWidth;
+	}
+	virtual int getHeight() override
+	{
+		return _spriteSheet->spriteHeight() * _tileMapHeight;
+	}
 
 private:
 	int* _tileMap;

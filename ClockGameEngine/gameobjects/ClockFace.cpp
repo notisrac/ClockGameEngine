@@ -28,8 +28,8 @@ void ClockFace::handleEvents(BitFlag* events)
 void ClockFace::update(int frameTime, int tens, int ones)
 {
 	update(frameTime);
-	_digitTens = tens;
-	_digitOnes = ones;
+	_digitTens = tens % 24;
+	_digitOnes = ones % 60;
 }
 
 void ClockFace::update(int frameTime)

@@ -11,6 +11,14 @@ public:
 	void handleEvents(BitFlag* events) override;
 	void update(int frameTime) override;
 	void render() override;
+	virtual int getWidth() override
+	{
+		return _spriteSheet->spriteWidth() * 1;
+	}
+	virtual int getHeight() override
+	{
+		return _spriteSheet->spriteHeight() * 1;
+	}
 
 };
 

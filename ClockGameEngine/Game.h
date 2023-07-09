@@ -16,15 +16,21 @@ public:
 	void clean();
 
 	void addGameObject(GameObject* object);
+	unsigned char gameObjectCount()
+	{
+		return _gameObjectCounter;
+	}
 
 	bool isRunning() {
 		return _isRunning;
 	}
 
+	bool detectCollision(int aX, int aY, int aWidth, int aHeight, int bX, int bY, int bWidth, int bHeight);
+
 private:
 	bool _isRunning = false;
 	Renderer* _renderer = nullptr;
-	GameObject* _gameObjects[MAX_GAMEOBJECTS] = { NULL };
+	GameObject* _gameObjects[MAX_GAMEOBJECTS] = { nullptr };
 	unsigned char _gameObjectCounter = 0;
 };
 

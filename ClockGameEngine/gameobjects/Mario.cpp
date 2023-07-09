@@ -33,8 +33,12 @@ void Mario::handleEvents(BitFlag* events)
 
 	if (events->HasFlag(EventTypes::ButtonUp))
 	{
-		_vDirection = -1;
-		_moveState = GameObjectMoveStates::Ascending;
+		if (_vDirection == 0)
+		{
+			_vDirection = -1;
+			_yStart = _yPos;
+			_vVelocity = MARIO_V_MAX_VELOCITY;
+		}
 		//std::cout << "up" << std::endl;
 	}
 }
@@ -73,6 +77,47 @@ void Mario::update(int frameTime)
 
 	_fXPos += ((_hDirection * _hVelocity) / 1000) * frameTime;
 	_xPos = round(_fXPos);
+
+
+	if (_vDirection != 0) // moving
+	{
+		if (_vDirection < 0) // up
+		{
+			_moveState = GameObjectMoveStates::Ascending;
+			if (_yStart - _yPos < MARIO_V_MAX_HEIGHT)
+			{
+				_vVelocity -= MARIO_V_DECELERATION;
+			}
+
+			if (_vVelocity <= 0)
+			{
+				_vDirection = 1;
+			}
+		}
+
+		if (_vDirection > 0) // down
+		{
+			_moveState = GameObjectMoveStates::Descending;
+			_vVelocity += MARIO_V_ACELLERATION;
+			if (_vVelocity >= MARIO_V_MAX_VELOCITY)
+			{
+				_vVelocity = MARIO_V_MAX_VELOCITY;
+			}
+
+			if (_yPos >= _yStart)
+			{
+				_moveState = GameObjectMoveStates::Stopped;
+				_vDirection = 0;
+				//_yPos = _yStart;
+			}
+		}
+
+		_fYPos += ((_vDirection * _vVelocity) / 1000) * frameTime;
+		_yPos = round(_fYPos);
+
+
+		//std::cout << _yPos << std::endl;
+	}
 
 	//std::cout << _xPos << std::endl;
 
@@ -124,7 +169,7 @@ void Mario::renderMario(unsigned char topLeft, unsigned char topRight, unsigned 
 
 void Mario::renderMarioAnim()
 {
-	std::cout << (int)_animStep * MARIO_ANIM_SPRITE_PER_FRAME << std::endl;
+	//std::cout << (int)_animStep * MARIO_ANIM_SPRITE_PER_FRAME << std::endl;
 
 	renderMario(
 		_runAnim[(int)_animStep * MARIO_ANIM_SPRITE_PER_FRAME + 0],

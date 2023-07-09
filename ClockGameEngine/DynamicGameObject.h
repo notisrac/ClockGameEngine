@@ -5,7 +5,11 @@
 class DynamicGameObject : public GameObject
 {
 public:
-	DynamicGameObject(SpriteSheet* spriteSheet, Renderer* renderer, int x, int y) : GameObject(spriteSheet, renderer, x, y) {}
+	DynamicGameObject(SpriteSheet* spriteSheet, Renderer* renderer, int x, int y) : GameObject(spriteSheet, renderer, x, y)
+	{
+		_fXPos = x;
+		_fYPos = y;
+	}
 	~DynamicGameObject() {}
 
 	// Inherited via GameObject

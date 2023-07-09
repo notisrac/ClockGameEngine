@@ -130,6 +130,9 @@ BitFlag* Renderer::pollEvents()
                 case SDLK_RETURN:
                     _eventsBitFlag.SetFlag(EventTypes::ButtonReturn);
                     break;
+                case SDLK_SPACE:
+                    _eventsBitFlag.SetFlag(EventTypes::ButtonSpace);
+                    break;
                 }
                 break;
             case SDL_KEYUP:
@@ -149,6 +152,9 @@ BitFlag* Renderer::pollEvents()
                     break;
                 case SDLK_RETURN:
                     _eventsBitFlag.UnsetFlag(EventTypes::ButtonReturn);
+                    break;
+                case SDLK_SPACE:
+                    _eventsBitFlag.UnsetFlag(EventTypes::ButtonSpace);
                     break;
                 }
                 break;

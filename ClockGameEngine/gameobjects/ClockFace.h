@@ -12,7 +12,14 @@ public:
 	void update(int frameTime) override;
 	void update(int frameTime, int tens, int ones);
 	void render() override;
-	// Inherited via GameObject
+	virtual int getWidth() override
+	{
+		return _spriteSheet->spriteWidth() * 3;
+	}
+	virtual int getHeight() override
+	{
+		return _spriteSheet->spriteHeight() * 3;
+	}
 
 private:
 	void _renderBackground(int x, int y);

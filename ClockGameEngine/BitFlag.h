@@ -7,7 +7,7 @@ enum class EventTypes
     ButtonDown = 1 << 3, // 8
     ButtonRight = 1 << 4, // 16
     ButtonReturn = 1 << 5, // 32
-    //Flag7 = 1 << 6, // 64
+    ButtonSpace = 1 << 6, // 64
     //Flag8 = 1 << 7  // 128
 };
 
