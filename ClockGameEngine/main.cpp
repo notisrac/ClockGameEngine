@@ -24,7 +24,6 @@ auto startTime = high_resolution_clock().now();
 // TODO get rid of the console window by setting Linker/subsystem to Windows (/SUBSYSTEM:WINDOWS)
 // TODO add collision detection to the game object, collision between the registered objects
 // TODO don't try to render anything that is outside of the viewport
-// TODO viewport size can be obtained from the renderer (change this in the tilemap)
 // MAYBE collision detection with tilemap
 
 // Window dimensions
@@ -70,7 +69,7 @@ int main(int argc, char** argv)
 	LakituCloud* lakituCloud = new LakituCloud(gameSprites, renderer, 0, 0);
 	ClockFace* clockFace = new ClockFace(gameSprites, clockFontSprites, renderer, -100, 14 /*15, 14*/);
 	Mario* mario = new Mario(gameSprites, renderer, 51, 78);
-	TileMap* tileMap = new TileMap(gameSprites, renderer, main_tile_map, MAIN_TILEMAP_WIDTH, MAIN_TILEMAP_HEIGHT, WIDTH, HEIGHT);
+	TileMap* tileMap = new TileMap(gameSprites, renderer, main_tile_map, MAIN_TILEMAP_WIDTH, MAIN_TILEMAP_HEIGHT);
 
 	// register game objects
 	game->addGameObject(tileMap);

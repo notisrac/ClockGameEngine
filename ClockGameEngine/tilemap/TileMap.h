@@ -4,11 +4,12 @@
 #include "../DynamicGameObject.h"
 
 #define TILEMAP_OBJECTS_ID_START 200
+#define TILEMAP_EMPTY_TILE_ID 255
 
 class TileMap : public GameObject
 {
 public:
-	TileMap(SpriteSheet* spriteSheet, Renderer* renderer, int* tileMap, int tileMapWidth, int tileMapHeight, int viewPortWidth, int viewPortHeight);
+	TileMap(SpriteSheet* spriteSheet, Renderer* renderer, int* tileMap, int tileMapWidth, int tileMapHeight);
 	~TileMap();
 
 	void registerGameObject(unsigned char id, DynamicGameObject* object);
@@ -20,8 +21,6 @@ public:
 
 private:
 	int* _tileMap;
-	int _viewPortWidth = 0;
-	int _viewPortHeight = 0;
 	int _tileMapWidth = 0;
 	int _tileMapHeight = 0;
 	Dictionary<DynamicGameObject, 1> _gameObjects;
