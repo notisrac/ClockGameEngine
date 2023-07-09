@@ -137,11 +137,12 @@
     <ClCompile Include="gameobjects\Mario.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="SpriteSheet.cpp" />
-    <ClCompile Include="TileMap.cpp" />
+    <ClCompile Include="tilemap\TileMap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Arduino.h" />
     <ClInclude Include="BitFlag.h" />
+    <ClInclude Include="Dictionary.h" />
     <ClInclude Include="gameobjects\ClockFace.h" />
     <ClInclude Include="resources\clock_face_font.h" />
     <ClInclude Include="gameobjects\LakituCloud.h" />
@@ -152,11 +153,11 @@
     <ClInclude Include="gameobjects\Mario.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="resources\gamespritesheet.h" />
-    <ClInclude Include="resources\main_tilemap.h">
+    <ClInclude Include="tilemap\main_tilemap.h">
       <DeploymentContent>false</DeploymentContent>
     </ClInclude>
     <ClInclude Include="SpriteSheet.h" />
-    <ClInclude Include="TileMap.h" />
+    <ClInclude Include="tilemap\TileMap.h" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="resources/**">

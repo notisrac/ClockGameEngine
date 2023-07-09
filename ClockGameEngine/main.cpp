@@ -14,14 +14,18 @@ using namespace std::chrono;
 #include "resources/clock_face_font.h"
 #include "gameobjects/ClockFace.h"
 #include "gameobjects/Mario.h"
-#include "resources/main_tilemap.h"
-#include "TileMap.h"
+#include "tilemap/main_tilemap.h"
+#include "tilemap/TileMap.h"
 
 auto startTime = high_resolution_clock().now();
 
 
 // TODO add debug text print to the renderer https://thenumb.at/cpp-course/sdl2/07/07.html
 // TODO get rid of the console window by setting Linker/subsystem to Windows (/SUBSYSTEM:WINDOWS)
+// TODO add collision detection to the game object, collision between the registered objects
+// TODO don't try to render anything that is outside of the viewport
+// TODO viewport size can be obtained from the renderer (change this in the tilemap)
+// MAYBE collision detection with tilemap
 
 // Window dimensions
 static const int WIDTH = 128;
@@ -64,7 +68,7 @@ int main(int argc, char** argv)
 	//GameObject* test = new GameObject(gameSprites, renderer, 0, 0);
 	//int* xx = new int[4] {0xd97e, 0xd97e, 0xd97e, 0xd97e};
 	LakituCloud* lakituCloud = new LakituCloud(gameSprites, renderer, 0, 0);
-	ClockFace* clockFace = new ClockFace(gameSprites, clockFontSprites, renderer, 15, 14);
+	ClockFace* clockFace = new ClockFace(gameSprites, clockFontSprites, renderer, -100, 14 /*15, 14*/);
 	Mario* mario = new Mario(gameSprites, renderer, 51, 78);
 	TileMap* tileMap = new TileMap(gameSprites, renderer, main_tile_map, MAIN_TILEMAP_WIDTH, MAIN_TILEMAP_HEIGHT, WIDTH, HEIGHT);
 
@@ -73,6 +77,9 @@ int main(int argc, char** argv)
 	game->addGameObject(lakituCloud);
 	game->addGameObject(clockFace);
 	game->addGameObject(mario);
+
+	// add the dynamic game objects, that represent an item on the tilemap to the tilemap
+	tileMap->registerGameObject(1, clockFace);
 
 	int cnt = 0;
 
