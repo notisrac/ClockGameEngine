@@ -4,6 +4,7 @@
 
 Mario::Mario(SpriteSheet* spriteSheet, Renderer* renderer, int x, int y) : DynamicGameObject(spriteSheet, renderer, x, y)
 {
+	_yStart = y;
 }
 
 Mario::~Mario()
@@ -36,7 +37,7 @@ void Mario::handleEvents(BitFlag* events)
 		if (_vDirection == 0)
 		{
 			_vDirection = -1;
-			_yStart = _yPos;
+			//_yStart = _yPos;
 			_vVelocity = MARIO_V_MAX_VELOCITY;
 		}
 		//std::cout << "up" << std::endl;
@@ -108,7 +109,8 @@ void Mario::update(int frameTime)
 			{
 				_moveState = GameObjectMoveStates::Stopped;
 				_vDirection = 0;
-				//_yPos = _yStart;
+				_vVelocity = 0;
+				_yPos = _yStart;
 			}
 		}
 

@@ -19,21 +19,27 @@ struct BitFlag
     }
 
     //Sets flag to true
-    void SetFlag(EventTypes flag)
+    BitFlag& SetFlag(EventTypes flag)
     {
         m_FlagValue |= (int)flag;
+
+        return *this;
     }
 
     //Sets flag to false
-    void UnsetFlag(EventTypes flag)
+    BitFlag& UnsetFlag(EventTypes flag)
     {
         m_FlagValue &= ~(int)flag;
+
+        return *this;
     }
 
     //Sets a flag value from true to false and vice versa
-    void FlipFlag(EventTypes flag)
+    BitFlag& FlipFlag(EventTypes flag)
     {
         m_FlagValue ^= (int)flag;
+
+        return *this;
     }
 
     //Check whether a flag is set to true

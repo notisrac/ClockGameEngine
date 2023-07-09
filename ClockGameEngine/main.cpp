@@ -54,6 +54,7 @@ int main(int argc, char** argv)
 	unsigned long frameStart = 0;
 	int frameTime;
 	int lastFrameTime = 0;
+	int lastClockBumpTime = 0;
 	int worldXPos = 0;
 
 	Renderer *renderer = new Renderer(WIDTH, HEIGHT, SCALE, "'lil Mario Clock game", 0x5cbf, 0xd97e);
@@ -67,9 +68,9 @@ int main(int argc, char** argv)
 	// create game objects
 	//GameObject* test = new GameObject(gameSprites, renderer, 0, 0);
 	//int* xx = new int[4] {0xd97e, 0xd97e, 0xd97e, 0xd97e};
-	LakituCloud* lakituCloud = new LakituCloud(gameSprites, renderer, 0, 0);
+	LakituCloud* lakituCloud = new LakituCloud(gameSprites, renderer, -20, -20);
 	ClockFace* clockFace = new ClockFace(gameSprites, clockFontSprites, renderer, 0, 0);
-	Mario* mario = new Mario(gameSprites, renderer, 5, 80);
+	Mario* mario = new Mario(gameSprites, renderer, 0, 80);
 	TileMap* tileMap = new TileMap(gameSprites, renderer, main_tile_map, MAIN_TILEMAP_WIDTH, MAIN_TILEMAP_HEIGHT);
 
 	// register game objects
@@ -95,8 +96,17 @@ int main(int argc, char** argv)
 		// render everything, including the new location for mario
 		game->update(lastFrameTime);
 		clockFace->update(lastFrameTime, cnt / 100, cnt % 100);
+
 		// update the world pos ( = mario's pos)
 		worldXPos = mario->getXPos();
+		
+		//// loop
+		//if (worldXPos >= 36 * gameSprites->spriteWidth())
+		//{
+		//	worldXPos = 8 * gameSprites->spriteWidth();
+		//}
+
+
 		// if mario is in the center of the screen, hold him there
 		if (worldXPos > screenCenter && worldXPos < (tileMap->getWidth() - screenCenter))
 		{
@@ -116,7 +126,12 @@ int main(int argc, char** argv)
 
 		if (game->detectCollision(mario->getXPos(), mario->getYPos(), mario->getWidth(), mario->getHeight(), clockFace->getXPos(), clockFace->getYPos(), clockFace->getWidth(), clockFace->getHeight()))
 		{
-			std::cout << "collision" << std::endl;
+			if (millis() - lastClockBumpTime > 500)
+			{
+				clockFace->handleEvents(&BitFlag().SetFlag(EventTypes::ButtonReturn));
+				lastClockBumpTime = millis();
+				cnt++;
+			}
 		}
 
 		game->render();
@@ -135,7 +150,7 @@ int main(int argc, char** argv)
 			sleep(frameDelay - frameTime);
 		}
 
-		cnt++;
+		//cnt++;
 	}
 
 	game->clean();
