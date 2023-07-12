@@ -16,6 +16,7 @@ using namespace std::chrono;
 #include "gameobjects/Mario.h"
 #include "tilemap/main_tilemap.h"
 #include "tilemap/TileMap.h"
+#include "gameobjects/Cloud.h"
 
 auto startTime = high_resolution_clock().now();
 
@@ -72,19 +73,28 @@ int main(int argc, char** argv)
 	ClockFace* clockFace = new ClockFace(gameSprites, clockFontSprites, renderer, 0, 0);
 	Mario* mario = new Mario(gameSprites, renderer, 0, 80);
 	TileMap* tileMap = new TileMap(gameSprites, renderer, main_tile_map, MAIN_TILEMAP_WIDTH, MAIN_TILEMAP_HEIGHT);
+	Cloud* cloud1 = new Cloud(gameSprites, renderer, -20, -20, 0, 300);
+	Cloud* cloud2 = new Cloud(gameSprites, renderer, -20, -20, 0, 200);
 
-	// register game objects
+	// register game objects - this specifies the render order too!
 	game->addGameObject(tileMap);
-	game->addGameObject(lakituCloud);
+	game->addGameObject(cloud1);
+	game->addGameObject(cloud2);
 	game->addGameObject(clockFace);
 	game->addGameObject(mario);
+	game->addGameObject(lakituCloud);
 
 	// add the dynamic game objects, that represent an item on the tilemap to the tilemap
-	tileMap->registerGameObject(1, clockFace);
+	tileMap->registerGameObject(0, clockFace);
+	tileMap->registerGameObject(1, cloud1);
+	tileMap->registerGameObject(2, cloud2);
 
 	int cnt = 0;
 	int screenCenter = (WIDTH / 2 - mario->getWidth() / 2);
+
+	bool automationActive = true;
 	bool loopActive = true;
+	unsigned long gameStart = millis();
 
 	while (game->isRunning())
 	{
@@ -101,18 +111,38 @@ int main(int argc, char** argv)
 		// update the world pos ( = mario's pos)
 		worldXPos = mario->getXPos();
 		
-		// break the loop on space bar
-		if (events->HasFlag(EventTypes::ButtonSpace))
+		if (automationActive)
 		{
-			loopActive = false;
+			if (millis() - gameStart > 2000)
+			{ // wait a few seconds on the title part of the map
+				// while not in position under the clock
+				if (worldXPos <= 43 * gameSprites->spriteWidth())
+				{
+					// keep pressing forward
+					events->SetFlag(EventTypes::ButtonRight);
+				}
+				else
+				{
+					events->UnsetFlag(EventTypes::ButtonRight);
+					cloud1->setSpeed(-40);
+					cloud2->setSpeed(25);
+				}
+			}
+
+			// break the loop on space bar
+			if (events->HasFlag(EventTypes::ButtonSpace))
+			{
+				loopActive = false;
+			}
+
+			// loop
+			if (loopActive && worldXPos >= 36 * gameSprites->spriteWidth())
+			{
+				worldXPos = 12 * gameSprites->spriteWidth();
+				mario->setPosition(worldXPos, mario->getYPos(), false);
+			}
 		}
 
-		// loop
-		if (loopActive && worldXPos >= 36 * gameSprites->spriteWidth())
-		{
-			worldXPos = 12 * gameSprites->spriteWidth();
-			mario->setPosition(worldXPos, mario->getYPos(), false);
-		}
 
 
 		// if mario is in the center of the screen, hold him there
@@ -132,6 +162,7 @@ int main(int argc, char** argv)
 			tileMap->setPosition(worldXPos - screenCenter, 0);
 		}
 
+		//check the collision of mario and the clock
 		if (game->detectCollision(mario->getXPos(), mario->getYPos(), mario->getWidth(), mario->getHeight(), clockFace->getXPos(), clockFace->getYPos(), clockFace->getWidth(), clockFace->getHeight()))
 		{
 			if (millis() - lastClockBumpTime > 500)

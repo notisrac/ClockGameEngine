@@ -51,7 +51,9 @@ public:
     {
         if (_stackCounter >= size)
         {
-            return;
+            char buf[128] = { 0 };
+            sprintf_s(buf, "Cannot add new object to the dictionary as maximum number of '%d' reached", size);
+            throw std::exception(buf);
         }
         else
         {

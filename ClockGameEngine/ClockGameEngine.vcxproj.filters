@@ -42,6 +42,9 @@
     <ClCompile Include="GameObjectDirection.h">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="gameobjects\Cloud.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -90,6 +93,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Dictionary.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gameobjects\Cloud.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

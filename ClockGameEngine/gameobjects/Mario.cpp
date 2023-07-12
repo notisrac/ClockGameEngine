@@ -121,7 +121,7 @@ void Mario::update(int frameTime)
 		//std::cout << _yPos << std::endl;
 	}
 
-	std::cout << "x: " << _xPos << " (" << _fXPos << ")" << '\t' << "y: " << _yPos << " (" << _fYPos << ")" << std::endl;
+	//std::cout << "x: " << _xPos << " (" << _fXPos << ")" << '\t' << "y: " << _yPos << " (" << _fYPos << ")" << std::endl;
 
 }
 

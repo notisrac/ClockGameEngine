@@ -31,6 +31,6 @@ private:
 	int* _tileMap;
 	int _tileMapWidth = 0;
 	int _tileMapHeight = 0;
-	Dictionary<DynamicGameObject, 1> _gameObjects;
+	Dictionary<DynamicGameObject, 3> _gameObjects;
 };
 

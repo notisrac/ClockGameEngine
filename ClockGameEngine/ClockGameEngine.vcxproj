@@ -129,6 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="gameobjects\Cloud.cpp" />
     <ClCompile Include="GameObjectDirection.h" />
     <ClCompile Include="gameobjects\ClockFace.cpp" />
     <ClCompile Include="gameobjects\LakituCloud.cpp" />
@@ -142,6 +143,7 @@
   <ItemGroup>
     <ClInclude Include="Arduino.h" />
     <ClInclude Include="BitFlag.h" />
+    <ClInclude Include="gameobjects\Cloud.h" />
     <ClInclude Include="Dictionary.h" />
     <ClInclude Include="gameobjects\ClockFace.h" />
     <ClInclude Include="resources\clock_face_font.h" />

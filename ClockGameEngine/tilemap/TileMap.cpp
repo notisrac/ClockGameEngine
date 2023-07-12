@@ -65,7 +65,7 @@ void TileMap::render()
 
 			if (spriteId >= TILEMAP_OBJECTS_ID_START)
 			{ // registered game object - just need to update the position
-				_gameObjects[spriteId - TILEMAP_OBJECTS_ID_START].object->setPosition(-1 * (xPosMod % spriteWidth) + (i - startX) * spriteWidth, -1 * (yPosMod % spriteHeight) + (j - startY) * spriteHeight);
+				_gameObjects[spriteId - TILEMAP_OBJECTS_ID_START].object->setPosition(-1 * (xPosMod % spriteWidth) + (i - startX) * spriteWidth, -1 * (yPosMod % spriteHeight) + (j - startY) * spriteHeight, false);
 				continue;
 			}
 
