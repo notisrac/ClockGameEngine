@@ -22,8 +22,8 @@ auto startTime = high_resolution_clock().now();
 
 // TODO add debug text print to the renderer https://thenumb.at/cpp-course/sdl2/07/07.html
 // TODO get rid of the console window by setting Linker/subsystem to Windows (/SUBSYSTEM:WINDOWS)
-// TODO add collision detection to the game object, collision between the registered objects
 // TODO don't try to render anything that is outside of the viewport
+// TODO optimize variable size, to reduce memory footprint
 // MAYBE collision detection with tilemap
 
 // Window dimensions
@@ -84,6 +84,7 @@ int main(int argc, char** argv)
 
 	int cnt = 0;
 	int screenCenter = (WIDTH / 2 - mario->getWidth() / 2);
+	bool loopActive = true;
 
 	while (game->isRunning())
 	{
@@ -92,7 +93,7 @@ int main(int argc, char** argv)
 
 		//renderer->write("asdf", 10, 10);
 
-		game->handleEvents();
+		BitFlag* events = game->handleEvents();
 		// render everything, including the new location for mario
 		game->update(lastFrameTime);
 		clockFace->update(lastFrameTime, cnt / 100, cnt % 100);
@@ -100,22 +101,29 @@ int main(int argc, char** argv)
 		// update the world pos ( = mario's pos)
 		worldXPos = mario->getXPos();
 		
-		//// loop
-		//if (worldXPos >= 36 * gameSprites->spriteWidth())
-		//{
-		//	worldXPos = 8 * gameSprites->spriteWidth();
-		//}
+		// break the loop on space bar
+		if (events->HasFlag(EventTypes::ButtonSpace))
+		{
+			loopActive = false;
+		}
+
+		// loop
+		if (loopActive && worldXPos >= 36 * gameSprites->spriteWidth())
+		{
+			worldXPos = 12 * gameSprites->spriteWidth();
+			mario->setPosition(worldXPos, mario->getYPos(), false);
+		}
 
 
 		// if mario is in the center of the screen, hold him there
 		if (worldXPos > screenCenter && worldXPos < (tileMap->getWidth() - screenCenter))
 		{
-			mario->setPosition(screenCenter, mario->getYPos());
+			mario->setPosition(screenCenter, mario->getYPos(), true);
 		}
 		// at the right end of the map, let mario go, so the map can stay put
 		if (worldXPos >= (tileMap->getWidth() - WIDTH / 2 - mario->getWidth() / 2))
 		{
-			mario->setPosition(worldXPos - (tileMap->getWidth() - WIDTH), mario->getYPos());
+			mario->setPosition(worldXPos - (tileMap->getWidth() - WIDTH), mario->getYPos(), true);
 		}
 
 		// move the tilemap based on the world pos
