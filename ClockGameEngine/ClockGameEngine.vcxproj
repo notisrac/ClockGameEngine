@@ -129,36 +129,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="gameobjects\Cloud.cpp" />
-    <ClCompile Include="GameObjectDirection.h" />
-    <ClCompile Include="gameobjects\ClockFace.cpp" />
-    <ClCompile Include="gameobjects\LakituCloud.cpp" />
+    <ClCompile Include="gameobject\gameobjects\cloud\Cloud.cpp" />
+    <ClCompile Include="gameobject\GameObjectDirection.h" />
+    <ClCompile Include="gameobject\gameobjects\clock\ClockFace.cpp" />
+    <ClCompile Include="gameobject\gameobjects\lakitucloud\LakituCloud.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="gameobjects\Mario.cpp" />
-    <ClCompile Include="Renderer.cpp" />
-    <ClCompile Include="SpriteSheet.cpp" />
+    <ClCompile Include="gameobject\gameobjects\mario\Mario.cpp" />
+    <ClCompile Include="renderer\Renderer.cpp" />
+    <ClCompile Include="spritesheet\SpriteSheet.cpp" />
     <ClCompile Include="tilemap\TileMap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Arduino.h" />
     <ClInclude Include="BitFlag.h" />
-    <ClInclude Include="gameobjects\Cloud.h" />
+    <ClInclude Include="gameobject\gameobjects\cloud\Cloud.h" />
     <ClInclude Include="Dictionary.h" />
-    <ClInclude Include="gameobjects\ClockFace.h" />
-    <ClInclude Include="resources\clock_face_font.h" />
-    <ClInclude Include="gameobjects\LakituCloud.h" />
-    <ClInclude Include="DynamicGameObject.h" />
+    <ClInclude Include="gameobject\gameobjects\clock\ClockFace.h" />
+    <ClInclude Include="assets\clock_face_font.h" />
+    <ClInclude Include="gameobject\gameobjects\lakitucloud\LakituCloud.h" />
+    <ClInclude Include="gameobject\DynamicGameObject.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="GameObjectMoveStates.h" />
-    <ClInclude Include="gameobjects\Mario.h" />
-    <ClInclude Include="Renderer.h" />
-    <ClInclude Include="resources\gamespritesheet.h" />
-    <ClInclude Include="tilemap\main_tilemap.h">
+    <ClInclude Include="gameobject\GameObject.h" />
+    <ClInclude Include="gameobject\GameObjectMoveStates.h" />
+    <ClInclude Include="gameobject\gameobjects\mario\Mario.h" />
+    <ClInclude Include="renderer\Renderer.h" />
+    <ClInclude Include="assets\gamespritesheet.h" />
+    <ClInclude Include="assets\main_tilemap.h">
       <DeploymentContent>false</DeploymentContent>
     </ClInclude>
-    <ClInclude Include="SpriteSheet.h" />
+    <ClInclude Include="spritesheet\SpriteSheet.h" />
     <ClInclude Include="tilemap\TileMap.h" />
   </ItemGroup>
   <ItemGroup>

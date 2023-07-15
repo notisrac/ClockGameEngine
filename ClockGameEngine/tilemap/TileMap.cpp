@@ -1,6 +1,6 @@
 #include "TileMap.h"
 
-TileMap::TileMap(SpriteSheet* spriteSheet, Renderer* renderer, int* tileMap, int tileMapWidth, int tileMapHeight) : GameObject(spriteSheet, renderer, 0, 0)
+TileMap::TileMap(SpriteSheet* spriteSheet, Renderer* renderer, const unsigned char* tileMap, int tileMapWidth, int tileMapHeight) : GameObject(spriteSheet, renderer, 0, 0)
 {
 	_tileMap = tileMap;
 	_tileMapWidth = tileMapWidth;

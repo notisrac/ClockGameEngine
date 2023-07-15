@@ -1,6 +1,6 @@
 #pragma once
-#include "../DynamicGameObject.h"
-#include "../GameObjectDirection.h"
+#include "../../DynamicGameObject.h"
+#include "../../GameObjectDirection.h"
 
 #define MARIO_H_MAX_VELOCITY 100
 #define MARIO_H_ACELLERATION 10

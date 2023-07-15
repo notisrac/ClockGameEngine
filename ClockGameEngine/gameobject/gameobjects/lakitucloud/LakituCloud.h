@@ -1,5 +1,5 @@
 #pragma once
-#include "../DynamicGameObject.h"
+#include "../../DynamicGameObject.h"
 
 class LakituCloud : public DynamicGameObject
 {

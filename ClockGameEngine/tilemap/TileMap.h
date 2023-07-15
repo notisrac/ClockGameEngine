@@ -1,7 +1,7 @@
 #pragma once
-#include "../GameObject.h"
+#include "../gameobject/GameObject.h"
 #include "../Dictionary.h"
-#include "../DynamicGameObject.h"
+#include "../gameobject/DynamicGameObject.h"
 
 #define TILEMAP_OBJECTS_ID_START 200
 #define TILEMAP_EMPTY_TILE_ID 255
@@ -9,7 +9,7 @@
 class TileMap : public GameObject
 {
 public:
-	TileMap(SpriteSheet* spriteSheet, Renderer* renderer, int* tileMap, int tileMapWidth, int tileMapHeight);
+	TileMap(SpriteSheet* spriteSheet, Renderer* renderer, const unsigned char* tileMap, int tileMapWidth, int tileMapHeight);
 	~TileMap();
 
 	void registerGameObject(unsigned char id, DynamicGameObject* object);
@@ -28,7 +28,7 @@ public:
 	}
 
 private:
-	int* _tileMap;
+	const unsigned char* _tileMap;
 	int _tileMapWidth = 0;
 	int _tileMapHeight = 0;
 	Dictionary<DynamicGameObject, 3> _gameObjects;

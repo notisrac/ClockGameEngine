@@ -9,8 +9,8 @@ class DynamicGameObject : public GameObject
 public:
 	DynamicGameObject(SpriteSheet* spriteSheet, Renderer* renderer, int x, int y) : GameObject(spriteSheet, renderer, x, y)
 	{
-		_fXPos = x;
-		_fYPos = y;
+		_fXPos = (float)x;
+		_fYPos = (float)y;
 	}
 	~DynamicGameObject() {}
 
@@ -20,14 +20,13 @@ public:
 		GameObject::setPosition(x, y);
 		if (!displayOnly)
 		{
-			_fXPos = x;
-			_fYPos = y;
+			_fXPos = (float)x;
+			_fYPos = (float)y;
 		}
 	}
 
 
 protected:
-	//GameObjectMoveStates _moveState = GameObjectMoveStates::Stopped;
 	char _hDirection = 0;
 	char _vDirection = 0;
 	float _fXPos = 0;

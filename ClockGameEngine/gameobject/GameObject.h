@@ -1,8 +1,8 @@
 #pragma once
 #include <stdexcept>
 
-#include "Renderer.h"
-#include "SpriteSheet.h"
+#include "../renderer/Renderer.h"
+#include "../spritesheet/SpriteSheet.h"
 
 class GameObject
 {

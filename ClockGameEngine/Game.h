@@ -1,6 +1,6 @@
 #pragma once
-#include "Renderer.h"
-#include "GameObject.h"
+#include "renderer/Renderer.h"
+#include "gameobject/GameObject.h"
 
 #define MAX_GAMEOBJECTS 32
 

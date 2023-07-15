@@ -1,6 +1,4 @@
 #pragma once
-#include "GameObject.h"
-
 
 template <typename T, unsigned char size>
 class Dictionary

@@ -12,8 +12,7 @@ void LakituCloud::handleEvents(BitFlag* events)
 
 void LakituCloud::render()
 {
-	int* pixels = _spriteSheet->getSprite(39);
-	_renderer->drawSprite(_xPos, _yPos, _spriteSheet->spriteWidth(), _spriteSheet->spriteWidth(), pixels);
+	_renderer->drawSprite(_xPos, _yPos, _spriteSheet->spriteWidth(), _spriteSheet->spriteWidth(), _spriteSheet->getSprite(39));
 }
 
 void LakituCloud::update(int frameTime)

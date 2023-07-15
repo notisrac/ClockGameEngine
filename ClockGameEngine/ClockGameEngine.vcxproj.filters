@@ -21,28 +21,28 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Renderer.cpp">
+    <ClCompile Include="renderer\Renderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SpriteSheet.cpp">
+    <ClCompile Include="spritesheet\SpriteSheet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gameobjects\LakituCloud.cpp">
+    <ClCompile Include="gameobject\gameobjects\lakitucloud\LakituCloud.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gameobjects\ClockFace.cpp">
+    <ClCompile Include="gameobject\gameobjects\clock\ClockFace.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gameobjects\Mario.cpp">
+    <ClCompile Include="gameobject\gameobjects\mario\Mario.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="tilemap\TileMap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameObjectDirection.h">
+    <ClCompile Include="gameobject\GameObjectDirection.h">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gameobjects\Cloud.cpp">
+    <ClCompile Include="gameobject\gameobjects\cloud\Cloud.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,7 +50,7 @@
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Renderer.h">
+    <ClInclude Include="renderer\Renderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BitFlag.h">
@@ -59,43 +59,43 @@
     <ClInclude Include="Arduino.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="resources\clock_face_font.h">
+    <ClInclude Include="assets\clock_face_font.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.h">
+    <ClInclude Include="gameobject\GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="resources\gamespritesheet.h">
+    <ClInclude Include="assets\gamespritesheet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SpriteSheet.h">
+    <ClInclude Include="spritesheet\SpriteSheet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gameobjects\LakituCloud.h">
+    <ClInclude Include="gameobject\gameobjects\lakitucloud\LakituCloud.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gameobjects\ClockFace.h">
+    <ClInclude Include="gameobject\gameobjects\clock\ClockFace.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DynamicGameObject.h">
+    <ClInclude Include="gameobject\DynamicGameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameObjectMoveStates.h">
+    <ClInclude Include="gameobject\GameObjectMoveStates.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gameobjects\Mario.h">
+    <ClInclude Include="gameobject\gameobjects\mario\Mario.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="tilemap\TileMap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="tilemap\main_tilemap.h">
+    <ClInclude Include="assets\main_tilemap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Dictionary.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gameobjects\Cloud.h">
+    <ClInclude Include="gameobject\gameobjects\cloud\Cloud.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

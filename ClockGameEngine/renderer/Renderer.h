@@ -1,6 +1,6 @@
 #pragma once
 #include <SDL2/SDL.h>
-#include "BitFlag.h"
+#include "../BitFlag.h"
 #include <SDL2/SDL_ttf.h>
 
 class Renderer
@@ -10,7 +10,7 @@ public:
 	~Renderer();
 
 	void setPixel(int x, int y, int color);
-	void drawSprite(int x, int y, int width, int height, int* pixels);
+	void drawSprite(int x, int y, int width, int height, unsigned int* pixels);
 	void renderScreen();
 	void fillBackground(unsigned short color);
 	BitFlag* pollEvents();

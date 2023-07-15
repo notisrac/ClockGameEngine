@@ -1,7 +1,7 @@
 #include "SpriteSheet.h"
 
 
-SpriteSheet::SpriteSheet(int* spriteSheet, int width, int height, int spriteWidth, int spriteHeight)
+SpriteSheet::SpriteSheet(const unsigned int* spriteSheet, int width, int height, unsigned char spriteWidth, unsigned char spriteHeight)
 {
 	_spriteSheet = spriteSheet;
 	_sheetWidth = width;
@@ -14,18 +14,18 @@ SpriteSheet::~SpriteSheet()
 {
 }
 
-int* SpriteSheet::getSprite(int spriteNumber, bool flipped)
+unsigned int* SpriteSheet::getSprite(unsigned char spriteNumber, bool flipped)
 {
-	int* a = new int[_spriteWidth * _spriteHeight]{0};
+	unsigned int* a = new unsigned int[_spriteWidth * _spriteHeight]{0};
 
 	int row = spriteNumber / (_sheetWidth / _spriteWidth);
 	int col = spriteNumber % (_sheetWidth / _spriteWidth);
 
 	int startPos = (row * _spriteHeight) * _sheetWidth + (col * _spriteWidth);
 
-	for (int i = 0; i < _spriteWidth; i++)
+	for (unsigned char i = 0; i < _spriteWidth; i++)
 	{
-		for (int j = 0; j < _spriteHeight; j++)
+		for (unsigned char j = 0; j < _spriteHeight; j++)
 		{
 			a[j * _spriteWidth + ((flipped) ? (_spriteWidth - 1) - i : i)] = _spriteSheet[(row * _spriteHeight + j) * _sheetWidth + (col * _spriteWidth + i)];
 		}

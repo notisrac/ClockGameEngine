@@ -1,6 +1,6 @@
 #include "Renderer.h"
 #include <SDL2/SDL.h>
-#include "BitFlag.h"
+#include "../BitFlag.h"
 
 #include <SDl2/SDL_ttf.h>
 #include <stdexcept>
@@ -64,7 +64,7 @@ void Renderer::setPixel(int x, int y, int color)
 
 }
 
-void Renderer::drawSprite(int x, int y, int width, int height, int* pixels)
+void Renderer::drawSprite(int x, int y, int width, int height, unsigned int* pixels)
 {
     for (int i = 0; i < width; i++)
     {
