@@ -16,7 +16,7 @@ SpriteSheet::~SpriteSheet()
 
 unsigned int* SpriteSheet::getSprite(unsigned char spriteNumber, bool flipped)
 {
-	unsigned int* a = new unsigned int[_spriteWidth * _spriteHeight]{0};
+	unsigned int* a = new unsigned int[(unsigned int)_spriteWidth * (unsigned int)_spriteHeight]{0};
 
 	int row = spriteNumber / (_sheetWidth / _spriteWidth);
 	int col = spriteNumber % (_sheetWidth / _spriteWidth);

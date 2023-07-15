@@ -149,8 +149,8 @@ void Mario::render()
 
 void Mario::renderMario(unsigned char topLeft, unsigned char topRight, unsigned char bottomLeft, unsigned char bottomRight)
 {
-	const int spriteWidth = _spriteSheet->spriteWidth();
-	const int spriteHeight = _spriteSheet->spriteHeight();
+	const char spriteWidth = _spriteSheet->spriteWidth();
+	const char spriteHeight = _spriteSheet->spriteHeight();
 
 	if (_direction == GameObjectDirection::Left)
 	{

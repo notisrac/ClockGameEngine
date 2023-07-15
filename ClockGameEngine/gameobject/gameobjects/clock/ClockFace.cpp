@@ -57,8 +57,8 @@ void ClockFace::update(int frameTime)
 
 void ClockFace::_renderBackground(int x, int y)
 {
-	const int spriteWidth = _spriteSheet->spriteWidth();
-	const int spriteHeight = _spriteSheet->spriteHeight();
+	const unsigned char spriteWidth = _spriteSheet->spriteWidth();
+	const unsigned char spriteHeight = _spriteSheet->spriteHeight();
 	// left bg top row
 	_renderer->drawSprite(x                  , y                   , spriteWidth, spriteHeight, _spriteSheet->getSprite(14));
 	_renderer->drawSprite(x + spriteWidth    , y                   , spriteWidth, spriteHeight, _spriteSheet->getSprite(15));

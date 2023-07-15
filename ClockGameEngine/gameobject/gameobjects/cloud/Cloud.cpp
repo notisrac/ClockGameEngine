@@ -34,8 +34,8 @@ void Cloud::render()
 	//std::cout << "x: " << _xPos << " (" << _fXPos << ", " << _xPosDelta << ")" << std::endl;
 	_xPos += round(_xPosDelta);
 
-	const int spriteWidth = _spriteSheet->spriteWidth();
-	const int spriteHeight = _spriteSheet->spriteHeight();
+	const char spriteWidth = _spriteSheet->spriteWidth();
+	const char spriteHeight = _spriteSheet->spriteHeight();
 	// top row
 	_renderer->drawSprite(_xPos                  , _yPos               , spriteWidth, spriteHeight, _spriteSheet->getSprite(9));
 	_renderer->drawSprite(_xPos + spriteWidth    , _yPos               , spriteWidth, spriteHeight, _spriteSheet->getSprite(10));
