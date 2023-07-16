@@ -6,6 +6,10 @@ LakituCloud::LakituCloud(SpriteSheet* spriteSheet, Renderer* renderer, int x, in
 {
 }
 
+LakituCloud::~LakituCloud()
+{
+}
+
 void LakituCloud::handleEvents(BitFlag* events)
 {
 }

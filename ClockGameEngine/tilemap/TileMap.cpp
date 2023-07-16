@@ -27,10 +27,10 @@ void TileMap::update(int frameTime)
 	//{
 	//}
 
-	for (int i = 0; i < _tileMapWidth * _tileMapHeight; i++)
-	{
+	// for (int i = 0; i < _tileMapWidth * _tileMapHeight; i++)
+	// {
 
-	}
+	// }
 }
 
 void TileMap::render()
@@ -57,7 +57,12 @@ void TileMap::render()
 	{
 		for (int j = 0; j < _tileMapHeight; j++)
 		{
-			spriteId = _tileMap[j * _tileMapWidth + i];
+			spriteId =
+			#ifdef DESKTOP_MODE
+				_tileMap[j * _tileMapWidth + i];
+			#else
+				pgm_read_byte_near(_tileMap + (j * _tileMapWidth + i));
+			#endif
 			if (spriteId == TILEMAP_EMPTY_TILE_ID)
 			{ // empty tile
 				continue;
