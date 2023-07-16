@@ -28,10 +28,10 @@ auto startTime = high_resolution_clock().now();
 // MAYBE collision detection with tilemap
 
 // Window dimensions
-static const int WIDTH = 128;
-static const int HEIGHT = 128;
-static const int SCALE = 4;
-static const int FPS = 60;
+#define WIDTH 128
+#define HEIGHT 128
+#define SCALE 4
+#define FPS 60
 
 
 unsigned long millis()
