@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DICTIONARY_H_
+#define DICTIONARY_H_
 
 template <typename T, unsigned char size>
 class Dictionary
@@ -68,3 +69,5 @@ private:
     unsigned char _stackCounter = 0;
 
 };
+
+#endif

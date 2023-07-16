@@ -1,4 +1,6 @@
-#pragma once
+#ifndef CLOCKFACE_H_
+#define CLOCKFACE_H_
+
 #include "../../DynamicGameObject.h"
 
 class ClockFace : public DynamicGameObject
@@ -31,3 +33,4 @@ private:
 	float _yInternal = 0;
 };
 
+#endif

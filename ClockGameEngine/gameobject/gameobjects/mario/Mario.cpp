@@ -149,22 +149,19 @@ void Mario::render()
 
 void Mario::renderMario(unsigned char topLeft, unsigned char topRight, unsigned char bottomLeft, unsigned char bottomRight)
 {
-	const char spriteWidth = _spriteSheet->spriteWidth();
-	const char spriteHeight = _spriteSheet->spriteHeight();
-
 	if (_direction == GameObjectDirection::Left)
 	{
-		_renderer->drawSprite(_xPos              , _yPos               , spriteWidth, spriteHeight, _spriteSheet->getSprite(topRight, true));
-		_renderer->drawSprite(_xPos + spriteWidth, _yPos               , spriteWidth, spriteHeight, _spriteSheet->getSprite(topLeft, true));
-		_renderer->drawSprite(_xPos              , _yPos + spriteHeight, spriteWidth, spriteHeight, _spriteSheet->getSprite(bottomRight, true));
-		_renderer->drawSprite(_xPos + spriteWidth, _yPos + spriteHeight, spriteWidth, spriteHeight, _spriteSheet->getSprite(bottomLeft, true));
+		_renderer->drawSprite(_xPos                              , _yPos                               , _spriteSheet->spriteWidth(), _spriteSheet->spriteHeight(), _spriteSheet->getSprite(topRight, true));
+		_renderer->drawSprite(_xPos + _spriteSheet->spriteWidth(), _yPos                               , _spriteSheet->spriteWidth(), _spriteSheet->spriteHeight(), _spriteSheet->getSprite(topLeft, true));
+		_renderer->drawSprite(_xPos                              , _yPos + _spriteSheet->spriteHeight(), _spriteSheet->spriteWidth(), _spriteSheet->spriteHeight(), _spriteSheet->getSprite(bottomRight, true));
+		_renderer->drawSprite(_xPos + _spriteSheet->spriteWidth(), _yPos + _spriteSheet->spriteHeight(), _spriteSheet->spriteWidth(), _spriteSheet->spriteHeight(), _spriteSheet->getSprite(bottomLeft, true));
 	}
 	else
 	{
-		_renderer->drawSprite(_xPos              , _yPos               , spriteWidth, spriteHeight, _spriteSheet->getSprite(topLeft));
-		_renderer->drawSprite(_xPos + spriteWidth, _yPos               , spriteWidth, spriteHeight, _spriteSheet->getSprite(topRight));
-		_renderer->drawSprite(_xPos              , _yPos + spriteHeight, spriteWidth, spriteHeight, _spriteSheet->getSprite(bottomLeft));
-		_renderer->drawSprite(_xPos + spriteWidth, _yPos + spriteHeight, spriteWidth, spriteHeight, _spriteSheet->getSprite(bottomRight));
+		_renderer->drawSprite(_xPos                              , _yPos                               , _spriteSheet->spriteWidth(), _spriteSheet->spriteHeight(), _spriteSheet->getSprite(topLeft));
+		_renderer->drawSprite(_xPos + _spriteSheet->spriteWidth(), _yPos                               , _spriteSheet->spriteWidth(), _spriteSheet->spriteHeight(), _spriteSheet->getSprite(topRight));
+		_renderer->drawSprite(_xPos                              , _yPos + _spriteSheet->spriteHeight(), _spriteSheet->spriteWidth(), _spriteSheet->spriteHeight(), _spriteSheet->getSprite(bottomLeft));
+		_renderer->drawSprite(_xPos + _spriteSheet->spriteWidth(), _yPos + _spriteSheet->spriteHeight(), _spriteSheet->spriteWidth(), _spriteSheet->spriteHeight(), _spriteSheet->getSprite(bottomRight));
 	}
 
 }

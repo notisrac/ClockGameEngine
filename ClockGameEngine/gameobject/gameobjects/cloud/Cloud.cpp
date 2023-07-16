@@ -34,14 +34,12 @@ void Cloud::render()
 	//std::cout << "x: " << _xPos << " (" << _fXPos << ", " << _xPosDelta << ")" << std::endl;
 	_xPos += round(_xPosDelta);
 
-	const char spriteWidth = _spriteSheet->spriteWidth();
-	const char spriteHeight = _spriteSheet->spriteHeight();
 	// top row
-	_renderer->drawSprite(_xPos                  , _yPos               , spriteWidth, spriteHeight, _spriteSheet->getSprite(9));
-	_renderer->drawSprite(_xPos + spriteWidth    , _yPos               , spriteWidth, spriteHeight, _spriteSheet->getSprite(10));
-	_renderer->drawSprite(_xPos + 2 * spriteWidth, _yPos               , spriteWidth, spriteHeight, _spriteSheet->getSprite(11));
+	_renderer->drawSprite(_xPos                                  , _yPos                               , _spriteSheet->spriteWidth(), _spriteSheet->spriteHeight(), _spriteSheet->getSprite(9));
+	_renderer->drawSprite(_xPos + _spriteSheet->spriteWidth()    , _yPos                               , _spriteSheet->spriteWidth(), _spriteSheet->spriteHeight(), _spriteSheet->getSprite(10));
+	_renderer->drawSprite(_xPos + 2 * _spriteSheet->spriteWidth(), _yPos                               , _spriteSheet->spriteWidth(), _spriteSheet->spriteHeight(), _spriteSheet->getSprite(11));
 	// bottom row 
-	_renderer->drawSprite(_xPos                  , _yPos + spriteHeight, spriteWidth, spriteHeight, _spriteSheet->getSprite(23));
-	_renderer->drawSprite(_xPos + spriteWidth    , _yPos + spriteHeight, spriteWidth, spriteHeight, _spriteSheet->getSprite(24));
-	_renderer->drawSprite(_xPos + 2 * spriteWidth, _yPos + spriteHeight, spriteWidth, spriteHeight, _spriteSheet->getSprite(25));
+	_renderer->drawSprite(_xPos                                  , _yPos + _spriteSheet->spriteHeight(), _spriteSheet->spriteWidth(), _spriteSheet->spriteHeight(), _spriteSheet->getSprite(23));
+	_renderer->drawSprite(_xPos + _spriteSheet->spriteWidth()    , _yPos + _spriteSheet->spriteHeight(), _spriteSheet->spriteWidth(), _spriteSheet->spriteHeight(), _spriteSheet->getSprite(24));
+	_renderer->drawSprite(_xPos + 2 * _spriteSheet->spriteWidth(), _yPos + _spriteSheet->spriteHeight(), _spriteSheet->spriteWidth(), _spriteSheet->spriteHeight(), _spriteSheet->getSprite(25));
 }

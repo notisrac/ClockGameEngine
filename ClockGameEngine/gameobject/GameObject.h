@@ -1,4 +1,6 @@
-#pragma once
+#ifndef GAMEOBJECT_H_
+#define GAMEOBJECT_H_
+
 #include <stdexcept>
 
 #include "../renderer/Renderer.h"
@@ -46,4 +48,5 @@ protected:
 	int _yPos = 0;
 	bool _posOverwrite = false;
 };
-	
+
+#endif

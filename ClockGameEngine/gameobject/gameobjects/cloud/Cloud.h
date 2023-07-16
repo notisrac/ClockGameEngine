@@ -1,4 +1,6 @@
-#pragma once
+#ifndef CLOUD_H_
+#define CLOUD_H_
+
 #include "../../DynamicGameObject.h"
 
 class Cloud : public DynamicGameObject
@@ -30,3 +32,4 @@ private:
 	float _xPosDelta = 0;
 };
 
+#endif

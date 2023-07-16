@@ -1,4 +1,6 @@
-#pragma once
+#ifndef DYNAMICGAMEOBJECT_H_
+#define DYNAMICGAMEOBJECT_H_
+
 #include <iostream>
 
 #include "GameObject.h"
@@ -35,3 +37,4 @@ protected:
 	float _vVelocity = 0;
 };
 
+#endif

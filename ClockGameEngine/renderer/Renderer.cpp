@@ -73,8 +73,6 @@ void Renderer::drawSprite(int x, int y, int width, int height, unsigned int* pix
             setPixel(x + i, y + j, pixels[j * width + i]);
         }
     }
-    // free up the memory space allocated for the sprite
-    delete pixels;
 }
 
 void Renderer::renderScreen()

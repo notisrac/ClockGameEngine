@@ -1,8 +1,10 @@
-#pragma once
+#ifndef GAME_H_
+#define GAME_H_
+
 #include "renderer/Renderer.h"
 #include "gameobject/GameObject.h"
 
-#define MAX_GAMEOBJECTS 32
+#define MAX_GAMEOBJECTS 7
 
 class Game
 {
@@ -34,3 +36,4 @@ private:
 	unsigned char _gameObjectCounter = 0;
 };
 
+#endif

@@ -1,4 +1,6 @@
-#pragma once
+#ifndef MARIO_H_
+#define MARIO_H_
+
 #include "../../DynamicGameObject.h"
 #include "../../GameObjectDirection.h"
 
@@ -81,3 +83,4 @@ protected:
 	float _yStart = 0;
 };
 
+#endif

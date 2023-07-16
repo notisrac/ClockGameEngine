@@ -1,4 +1,5 @@
-#pragma once
+#ifndef GAMEOBJECTMOVESTATES_H_
+#define GAMEOBJECTMOVESTATES_H_
 
 enum GameObjectMoveStates : unsigned char
 {
@@ -9,3 +10,5 @@ enum GameObjectMoveStates : unsigned char
 	Ascending,
 	Descending
 };
+
+#endif

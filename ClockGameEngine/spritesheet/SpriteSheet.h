@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SPRITESHEET_H_
+#define SPRITESHEET_H_
 
 class SpriteSheet
 {
@@ -17,4 +18,7 @@ private:
 	int _sheetHeight;
 	unsigned char _spriteWidth;
 	unsigned char _spriteHeight;
+	unsigned int* _pixelBuffer;
 };
+
+#endif

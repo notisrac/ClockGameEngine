@@ -1,4 +1,6 @@
-#pragma once
+#ifndef BITFLAG_H_
+#define BITFLAG_H_
+
 enum class EventTypes
 {
     Quit = 1 << 0, // 1
@@ -55,3 +57,5 @@ struct BitFlag
 
     int m_FlagValue = 0;
 };
+
+#endif

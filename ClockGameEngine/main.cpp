@@ -5,17 +5,17 @@
 using namespace std;
 using namespace std::chrono;
 
-#include "renderer/Renderer.h"
 #include "Game.h"
-#include "gameobject/GameObject.h"
+#include "renderer/Renderer.h"
 #include "spritesheet/SpriteSheet.h"
 #include "assets/gamespritesheet.h"
-#include "gameobject/gameobjects/lakitucloud/LakituCloud.h"
 #include "assets/clock_face_font.h"
-#include "gameobject/gameobjects/clock/ClockFace.h"
-#include "gameobject/gameobjects/mario/Mario.h"
 #include "assets/main_tilemap.h"
 #include "tilemap/TileMap.h"
+#include "gameobject/GameObject.h"
+#include "gameobject/gameobjects/lakitucloud/LakituCloud.h"
+#include "gameobject/gameobjects/clock/ClockFace.h"
+#include "gameobject/gameobjects/mario/Mario.h"
 #include "gameobject/gameobjects/cloud/Cloud.h"
 
 auto startTime = high_resolution_clock().now();

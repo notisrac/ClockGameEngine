@@ -1,4 +1,6 @@
-#pragma once
+#ifndef TILEMAP_H_
+#define TILEMAP_H_
+
 #include "../gameobject/GameObject.h"
 #include "../Dictionary.h"
 #include "../gameobject/DynamicGameObject.h"
@@ -34,3 +36,4 @@ private:
 	Dictionary<DynamicGameObject, 3> _gameObjects;
 };
 
+#endif

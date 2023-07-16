@@ -1,6 +1,9 @@
-#pragma once
-#include <SDL2/SDL.h>
+#ifndef RENDERER_H_
+#define RENDERER_H_
+
 #include "../BitFlag.h"
+
+#include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 
 class Renderer
@@ -38,3 +41,4 @@ private:
 	BitFlag _eventsBitFlag;
 };
 
+#endif

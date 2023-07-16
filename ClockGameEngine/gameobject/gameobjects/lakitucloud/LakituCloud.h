@@ -1,4 +1,6 @@
-#pragma once
+#ifndef LAKITUCLOUD_H_
+#define LAKITUCLOUD_H_
+
 #include "../../DynamicGameObject.h"
 
 class LakituCloud : public DynamicGameObject
@@ -22,3 +24,4 @@ public:
 
 };
 
+#endif
